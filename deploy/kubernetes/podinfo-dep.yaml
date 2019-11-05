@@ -3,8 +3,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: podinfo
+  annotations:
+      flux.weave.works/tag.podinfo: glob:*
+      flux.weave.works/automated: 'true'
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: podinfo
